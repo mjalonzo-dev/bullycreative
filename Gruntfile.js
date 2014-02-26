@@ -68,9 +68,6 @@ module.exports = function(grunt) {
     watch: {
       less: {
         files: [
-          '*.php',
-          'components/*.php',
-          'case_studies/*.php',
           'assets/less/*.less',
           'assets/less/bootstrap/*.less'
         ],
@@ -91,7 +88,8 @@ module.exports = function(grunt) {
         files: [
           'assets/css/main.min.css',
           'assets/js/scripts.min.js',
-          '*.php'
+          '*.html',
+          'templates/*.html'
         ]
       }
     },

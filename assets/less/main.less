@@ -1,1 +1,56 @@
-// This is the main LESS file
+// Variables
+@assets:		'../img';
+@borderSize:	30px;
+
+// Mixins
+
+// General Styles
+h2 {
+	padding-left: 60px;
+}
+
+// Border Styles
+.border {
+	position: fixed;
+	background: #fff;
+
+	&.top, &.bottom {
+		width: 100%;
+		left: 0;
+		right: 0;
+		height: @borderSize;
+	}
+
+	&.left, &.right {
+		height: 100%;
+		top: 0;
+		bottom: 0;
+		width: @borderSize;
+	}
+
+	&.top {
+		top: 0;
+	}
+
+	&.bottom {
+		bottom: 0;
+	}
+
+	&.left {
+		left: 0;
+	}
+
+	&.right {
+		right: 0;
+	}
+}
+
+// Case Study Styles
+.case-study {
+	height: 100%;
+	width: auto;
+
+	img {
+		width: 100%;
+	}
+}
