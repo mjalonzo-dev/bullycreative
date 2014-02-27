@@ -21,6 +21,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
         <script src="assets/js/vendor/angular-ui-router.0.2.8.min.js"></script>
+        <script src="assets/js/vendor/angular-animate.min.js"></script>
         <script src="assets/js/angular/app.js"></script>
 
         <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -32,12 +33,15 @@
     
       <div id="navbar-wrapper" ng-include="'templates/nav.html'"></div>
 
-      <div ui-view></div>
+      <!-- <div ui-view="viewMainContent"></div> -->
+      <!-- <div class="slide-right" ui-view="viewSlideInRight"></div> -->
+      <div ui-view id="slides" ng-animate="slide"></div>
+
 
       <div id="borders" ng-include="'templates/borders.html'"></div>
 
-      <footer ng-include="'templates/footer.html'"></footer>
-      
+      <footer class="container" ng-include="'templates/footer.html'"></footer>
+
           
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
