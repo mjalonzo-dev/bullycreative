@@ -1,0 +1,30 @@
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ng-click="go('/', 'slideRight')">
+            <img src="assets/img/bully-logo.png" alt="Bully Creative"/>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">Work <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a ng-click="go('/cs1', 'slideLeft')">Case Study 1</a></li>
+                <li><a ng-click="go('/cs2', 'slideLeft')">Case Study 2</a></li>
+                <li><a ng-click="go('/cs3', 'slideLeft')">Case Study 3</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </li>
+            <li><a href="#/contact">Contact</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+
+    </div>

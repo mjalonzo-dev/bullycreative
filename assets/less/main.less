@@ -1,10 +1,15 @@
 // Variables
 @assets:		'../img';
-@borderSize:	30px;
+@borderSize:	50px;
 
 // Mixins
 
 // General Styles
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	position: relative;
 }
@@ -46,6 +51,27 @@ h2 {
  right: 0;
  }
 
+// Nav Styles
+.navbar {
+	background: none;
+	border: none;
+
+	.navbar-brand {
+		height: 50px;
+		margin-left: @borderSize;
+		padding: 10px 0 10px;
+		display: block;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.navbar-nav {
+		float: right;
+	}
+}
+
 // Border Styles
 .border {
 	position: fixed;
@@ -65,9 +91,9 @@ h2 {
 		width: @borderSize;
 	}
 
-	&.top {
+/*	&.top {
 		top: 0;
-	}
+	}*/
 
 	&.bottom {
 		bottom: 0;
@@ -82,6 +108,72 @@ h2 {
 	}
 }
 
+// Home Styles
+.home {
+	position: absolute;
+	top: @borderSize;
+	bottom: @borderSize;
+	left: @borderSize;
+	right: @borderSize;
+
+	.content-wrapper {
+		height: 100%;
+		width: 100%;
+		display: table;
+		background: url("@{assets}/ali-knockout.jpg") no-repeat  center 50%;
+		background-size: cover;
+
+		.content-inner {
+			height: 100%;
+			width: 100%;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			position: relative;
+
+			.logo {
+				margin-top: 90px;
+				display: inline-block;
+
+				h1 {
+					text-indent: -9999px;
+					display: block;
+					background: url("@{assets}/bully-logo.png") no-repeat;
+					background-size: cover;
+					width: 314px;
+					height: 202px;
+				}
+			}
+
+			.text-block {
+				line-height: 24px;
+				color: #000;
+				width: 35%;
+				display: block;
+				margin: 20px auto 0;
+			}
+
+			.project-info {
+				position: absolute;
+				right: 20px;
+				top: 49%;
+
+				a {
+					color: red;
+					font-size: 18px;
+					font-weight: bold;
+					text-decoration: none;
+
+					&:hover {
+						cursor: pointer;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}
+
 // Case Study Styles
 .case-study {
 	height: 100%;
@@ -90,4 +182,153 @@ h2 {
 	img {
 		width: 100%;
 	}
+}
+
+/* partial containers */
+.page-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transform: translate3d(0,0,0);
+    margin-top: 3rem;
+}
+.page-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+    color: #FFFFFF;
+}
+.pages {
+    height: inherit;
+    padding: 2rem;
+}
+#page1 {
+    background-color: #0AC2D2;
+}
+#page2 {
+    background-color: #60D7A9;
+}
+#page3 {
+    background-color: #FDC162;
+}
+#page4 {
+    background-color: #FD6A62;
+}
+/* Transitions */
+/* Default Enter/Leave */
+.ng-enter,
+.ng-leave {
+    transition-timing-function: ease;
+    transition-duration: 250ms;
+    transition-property: opacity;
+}
+.ng-enter {
+    opacity: 0;
+}
+.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.ng-leave {
+    opacity: 1;
+}
+.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+/* crossFade */
+.crossFade.ng-enter {
+    transition-duration: 100ms;
+    opacity: 0;
+}
+.crossFade.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.crossFade.ng-leave {
+    transition-duration: 100ms;
+    opacity: 1;
+}
+.crossFade.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+/* slideRight */
+.slideRight {
+    opacity: 1 !important;
+}
+.slideRight.ng-enter {
+    transition-property: none;
+    transform: translate3d(-100%,0,0);
+}
+.slideRight.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideRight.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideRight.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(100%,0,0);
+}
+/* slideLeft */
+.slideLeft {
+    opacity: 1 !important;
+}
+.slideLeft.ng-enter {
+    transition-property: none;
+    transform: translate3d(100%,0,0);
+}
+.slideLeft.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideLeft.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideLeft.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(-100%,0,0);
+}
+/* slideDown */
+.slideDown {
+}
+.slideDown.ng-enter {
+    transition-property: none;
+    transform: translate3d(0,-100%,0);
+}
+.slideDown.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideDown.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideDown.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(0,100%,0);
+}
+/* slideUp */
+.slideUp {
+    opacity: 1 !important;
+}
+.slideUp.ng-enter {
+    transition-property: none;
+    transform: translate3d(0,100%,0);
+}
+.slideUp.ng-enter.ng-enter-active {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideUp.ng-leave {
+    transition-property: all;
+    transform: translate3d(0,0,0);
+}
+.slideUp.ng-leave.ng-leave-active {
+    transition-property: all;
+    transform: translate3d(0,-100%,0);
 }

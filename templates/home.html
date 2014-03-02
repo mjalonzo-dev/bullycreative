@@ -1,9 +1,27 @@
-<div class="container home">
-	<div class="row">
-	  <div class="col-lg-12">
-	    <h2>This is the Homepage</h2>
-	  </div>
-	</div>
-</div>
+<div id="navbar-wrapper" ng-include="'templates/home-nav.html'"></div>
 
-<hr>
+<div class="home">
+	<div class="content-wrapper">
+		<div class="content-inner">
+			<a class="logo" href="#">
+				<h1>
+					Bully Creative
+				</h1>
+			</a>
+			<span class="text-block">
+				<p>
+					Bully does complete design strategy and execution. Exhaustive research and exploration means we do the work for clients who need the best. In short, we turn blood, sweat, and tears into full creative solutions in branding, web, iOS, print, packaging, and environmental design.
+				</p>
+				<p>
+					We do the work.
+				</p>
+			</span>
+
+			<div class="project-info">
+				<a ng-click="go('/cs1', 'slideLeft')">
+					View our Projects >
+				</a>
+			</div><!-- .project-info -->
+		</div><!-- .content-inner -->
+	</div><!-- .content-wrapper -->
+</div>
