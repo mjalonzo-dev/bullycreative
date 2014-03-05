@@ -1,8 +1,37 @@
 // Declare the main module
 var blyApp = angular.module('blyApp', [
-    'ngRoute',
+    'ui.router',
     'ngAnimate'
-]);
+]).value('$anchorScroll', angular.noop);
+
+// Configure the main module
+blyApp.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) {
+    $uiViewScrollProvider.useAnchorScroll();
+    $stateProvider
+        .state('home', {
+            url: '/',
+            templateUrl: 'templates/home.html'
+        })
+        .state('cs1', {
+            url: '/cs1',
+            templateUrl: 'templates/cs1.html'
+        })
+        .state('cs2', {
+            url: '/cs2',
+            templateUrl: 'templates/cs2.html'
+        })
+        .state('cs3', {
+            url: '/cs3',
+            templateUrl: 'templates/cs3.html'
+        })
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'templates/contact.html'
+        });
+    $urlRouterProvider.otherwise('/');
+}]);
+
+// Initialize the main module
 // Initialize the main module
 blyApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
     'use strict';
@@ -27,24 +56,4 @@ blyApp.run(['$rootScope', '$location', '$window', function ($rootScope, $locatio
             $location.path(path);
         }
     };
-}]);
-// Configure the main module
-blyApp.config(['$routeProvider', function ($routeProvider) {
-    'use strict';
-    $routeProvider
-        .when('/cs1', {
-            templateUrl: 'templates/cs1.html'
-        })
-        .when('/cs2', {
-            templateUrl: 'templates/cs2.html'
-        })
-        .when('/cs3', {
-            templateUrl: 'templates/cs3.html'
-        })
-        .when('/contact', {
-            templateUrl: 'templates/contact.html'
-        })
-        .otherwise({
-           templateUrl: 'templates/home.html' 
-        });
 }]);
