@@ -2,7 +2,7 @@
 var blyApp = angular.module('blyApp', [
     'ui.router',
     'ngAnimate'
-]).value('$anchorScroll', angular.noop);
+]);
 
 // Configure the main module
 blyApp.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) {
@@ -29,7 +29,17 @@ blyApp.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', 
             templateUrl: 'templates/contact.html'
         });
     $urlRouterProvider.otherwise('/');
-}]);
+
+}]).controller('viewCtrl', function ($scope) {
+  
+  $scope.$on('$stateChangeSuccess', function (event, toState) {
+    //if (toState.name === 'home' && fromState.name === 'cs1') {
+    //  $scope.back = true; 
+    // } else {
+    //  $scope.back = false; 
+    //}
+  });
+});
 
 // Initialize the main module
 // Initialize the main module
@@ -56,4 +66,12 @@ blyApp.run(['$rootScope', '$location', '$window', function ($rootScope, $locatio
             $location.path(path);
         }
     };
+
+    $rootScope.$on('$stateChangeStart', 
+        function(event, toState, toParams, fromState, fromParams){ 
+        //event.preventDefault(); 
+        // transitionTo() promise will be rejected with 
+        // a 'transition prevented' error
+    });
+
 }]);

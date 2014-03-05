@@ -18,6 +18,61 @@ h2 {
 	padding-left: 60px;
 }
 
+/* Default Enter/Leave */
+[ui-view] {
+	position: absolute;
+	top: @borderSize;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.ng-enter,
+.ng-leave {
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+.ng-enter {
+    opacity: 1;
+}
+.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.ng-leave {
+    opacity: 1;
+}
+.ng-leave.ng-leave-active {
+    opacity: 1;
+}
+
+// UI-View Styles
+[ui-view].ng-enter, [ui-view].ng-leave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+
+[ui-view].ng-leave {
+    left: 0;
+}
+
+[ui-view].ng-leave-active {
+    left: -100%;
+}
+
+[ui-view].ng-enter {
+    left: 100%;
+}
+
+[ui-view].ng-enter-active {
+    left: 0;
+}
+
 // Nav Styles
 .navbar {
 	background: none;
@@ -79,7 +134,7 @@ h2 {
 // Home Styles
 .home {
 	position: absolute;
-	top: @borderSize;
+	top: 0;
 	bottom: @borderSize;
 	left: @borderSize;
 	right: @borderSize;
@@ -177,25 +232,7 @@ h2 {
 }
 
 /* Transitions */
-/* Default Enter/Leave */
-.ng-enter,
-.ng-leave {
-    transition-timing-function: ease;
-    transition-duration: 800ms;
-    transition-property: opacity;
-}
-.ng-enter {
-    opacity: 0;
-}
-.ng-enter.ng-enter-active {
-    opacity: 1;
-}
-.ng-leave {
-    opacity: 1;
-}
-.ng-leave.ng-leave-active {
-    opacity: 0;
-}
+
 /* crossFade */
 .crossFade.ng-enter {
     transition-duration: 100ms;
@@ -289,29 +326,4 @@ h2 {
 .slideUp.ng-leave.ng-leave-active {
     transition-property: all;
     transform: translate3d(0,-100%,0);
-}
-
-[ui-view].ng-enter, [ui-view].ng-leave{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-transition:all 0.5s ease-in-out;
-    -moz-transition:all 0.5s ease-in-out;
-    -o-transition:all 0.5s ease-in-out;
-    transition:all 0.5s ease-in-out;
-}
-
-[ui-view].ng-leave{
-    left: 0;
-}
-[ui-view].ng-leave-active{
-    left: -100%;
-}
-
-[ui-view].ng-enter{
-    left: 100%;
-}
-
-[ui-view].ng-enter-active{
-    left: 0;
 }
