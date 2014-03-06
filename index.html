@@ -25,39 +25,10 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-      <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar navbar-inverse navbar-fixed-top" ng-include="'templates/nav.html'"></div>        
 
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" ui-sref="home">
-            <img src="assets/img/bully-logo.png" alt="Bully Creative"/>
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active" class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">Work <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a ui-sref="cs1">Case Study 1</a></li>
-                <li><a ui-sref="cs2">Case Study 2</a></li>
-                <li><a ui-sref="cs3">Case Study 3</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a ui-sref="home">View All</a></li>
-              </ul>
-            </li>
-            <li><a ui-sref="contact">Contact</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-
-      </div>        
-
-      <div class="viewWrap" ng-controller="viewCtrl">
-        <div id="pageContainer" class="viewContainer" ng-class="{back: back}" ui-view></div>
+      <div class="viewWrap">
+        <div ng-controller="viewCtrl" id="pageContainer" class="viewContainer" ng-class="animationStyle" ui-view></div>
       </div><!-- #viewWrap -->
 
 
@@ -65,10 +36,8 @@
 
       <!-- <footer class="container" ng-include="'templates/footer.html'"></footer> -->
 
-      <script>document.write('<base href="' + document.location + '" />');</script>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
       <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
       <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.9/angular.js" data-semver="1.2.9"></script>
       <script data-require="ui-router@*" data-semver="0.2.8" src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
       <script data-require="angular-animate@*" data-semver="1.2.9" src="http://code.angularjs.org/1.2.9/angular-animate.js"></script>
@@ -77,13 +46,5 @@
 
       <script src="assets/js/scripts.min.js"></script>
 
-      <script src="assets/js/vendor/modernizr-2.7.0.min.js"></script>
-
-      <script>
-          var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-          (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-          g.src='//www.google-analytics.com/ga.js';
-          s.parentNode.insertBefore(g,s)}(document,'script'));
-      </script>
     </body>
 </html>

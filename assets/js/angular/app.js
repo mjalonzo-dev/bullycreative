@@ -5,8 +5,7 @@ var blyApp = angular.module('blyApp', [
 ]);
 
 // Configure the main module
-blyApp.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', function ($stateProvider, $urlRouterProvider, $uiViewScrollProvider) {
-    $uiViewScrollProvider.useAnchorScroll();
+blyApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
             url: '/',
@@ -32,46 +31,15 @@ blyApp.config(['$stateProvider', '$urlRouterProvider', '$uiViewScrollProvider', 
 
 }]).controller('viewCtrl', function ($scope) {
   
-  $scope.$on('$stateChangeSuccess', function (event, toState) {
-    //if (toState.name === 'home' && fromState.name === 'cs1') {
-    //  $scope.back = true; 
-    // } else {
-    //  $scope.back = false; 
-    //}
+  $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+    console.log('fromState: ' + fromState.name);
+    console.log('toState: ' + toState.name);
+
+        if (toState.name === 'home') {
+            $scope.animationStyle = 'slideRight';
+        } else if (toState.name === 'cs1') {
+            $scope.animationStyle = 'slideLeft';
+        }
   });
+
 });
-
-// Initialize the main module
-// Initialize the main module
-blyApp.run(['$rootScope', '$location', '$window', function ($rootScope, $location, $window) {
-    'use strict';
-    /**
-     * Helper method for main page transitions. Useful for specifying a new page partial and an arbitrary transition.
-     * @param  {String} path               The root-relative url for the new route
-     * @param  {String} pageAnimationClass A classname defining the desired page transition
-     */
-    $rootScope.go = function (path, pageAnimationClass) {
-        if (typeof(pageAnimationClass) === 'undefined') { // Use a default, your choice
-            $rootScope.pageAnimationClass = 'crossFade';
-        }
-        
-        else { // Use the specified animation
-            $rootScope.pageAnimationClass = pageAnimationClass;
-        }
-        if (path === 'back') { // Allow a 'back' keyword to go to previous page
-            $window.history.back();
-        }
-        
-        else { // Go to the specified path
-            $location.path(path);
-        }
-    };
-
-    $rootScope.$on('$stateChangeStart', 
-        function(event, toState, toParams, fromState, fromParams){ 
-        //event.preventDefault(); 
-        // transitionTo() promise will be rejected with 
-        // a 'transition prevented' error
-    });
-
-}]);
